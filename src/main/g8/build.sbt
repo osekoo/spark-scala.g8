@@ -1,10 +1,10 @@
 name := "$name;format="normalize"$"
 
-version := "0.1"
+version := "app_version"
 
-scalaVersion := "$app_version$"
+scalaVersion := "$scala_version$"
 
-val sparkVersion = "$scala_version$"
+val sparkVersion = "$spark_version$"
 
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
