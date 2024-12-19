@@ -1,6 +1,6 @@
 import org.apache.spark.sql.SparkSession
 
-object MainApp {
+object $class_name;format="Camel"$ {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder
       .appName("Word Count")
