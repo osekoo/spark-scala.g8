@@ -1,7 +1,7 @@
 #!/bin/bash
-/opt/bitnami/spark/bin/spark-submit \
-    --deploy-mode "client" \
-    --master "spark://spark-master:7077" \
+spark-submit \
+    --deploy-mode client \
+    --master "$SPARK_MASTER_URL" \
     --executor-cores 4 \
     --executor-memory 2G \
     --num-executors 1 \

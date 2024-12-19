@@ -1,21 +1,18 @@
 version: '3.8'
 services:
   spark-master:
-    image: bitnami/spark:3.5
+    image: ghcr.io/osekoo/spark:3.5
     container_name: spark-master
-    working_dir: /app
     environment:
       - SPARK_MODE=master
       - SPARK_MASTER_HOST=spark-master
     ports:
       - "8080:8080"
       - "7077:7077"
-    volumes:
-      - ./:/app
     restart: unless-stopped
 
   spark-worker:
-    image: bitnami/spark:3.5
+    image: ghcr.io/osekoo/spark:3.5
     container_name: spark-worker
     environment:
       - SPARK_MODE=worker
@@ -24,3 +21,15 @@ services:
       - spark-master
     restart: unless-stopped
 
+  spark-submit:
+    image: ghcr.io/osekoo/spark:3.5
+    container_name: spark-submit
+    environment:
+      - SPARK_MODE=submit
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    volumes:
+      - ./:/app
+    working_dir: /app
+    depends_on:
+      - spark-master
+    restart: unless-stopped

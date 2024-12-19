@@ -17,7 +17,7 @@ object $class_name;format="Camel"$ {
     val fruits = Seq("apple", "banana", "carrot", "orange", "kiwi", "melon", "pineapple") // list of fruits
     val colors = Seq("red", "yellow", "orange", "green", "brown", "blue", "purple") // list of colors
     // pick between 5 and 15 colored fruits randomly as one item of a seq and repeat them 1000 times to create a dataset
-    val data = (1 to 1000).map(_ => (1 to scala.util.Random.nextInt(10) + 5).map(_ => s"${colors(scala.util.Random.nextInt(colors.length))} ${fruits(scala.util.Random.nextInt(fruits.length))}").mkString(", "))
+    val data = (1 to 1000).map(_ => (1 to scala.util.Random.nextInt(10) + 5).map(_ => s"\${colors(scala.util.Random.nextInt(colors.length))} \${fruits(scala.util.Random.nextInt(fruits.length))}").mkString(", "))
 
     // print the first 10 items of the dataset
     println("\n============================ Dataset ============================")
