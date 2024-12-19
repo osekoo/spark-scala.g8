@@ -5,5 +5,5 @@
     --executor-cores 4 \
     --executor-memory 2G \
     --num-executors 1 \
-    --class "MainApp" \
-    "target/scala-2.12/wordcount_2.12-0.1.jar" \
+    --class "$class_name$" \
+    "target/scala-2.12/$name;format="normalize"$_2.12-$app_version$.jar" \
