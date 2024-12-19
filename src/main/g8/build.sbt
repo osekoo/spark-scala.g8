@@ -1,6 +1,6 @@
 name := "$name;format="normalize"$"
 
-version := "app_version"
+version := "$app_version$"
 
 scalaVersion := "$scala_version$"
 
