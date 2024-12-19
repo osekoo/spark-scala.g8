@@ -10,5 +10,6 @@ echo Waiting for Spark master to be ready...
 timeout 10
 
 echo Submitting Spark job...
+docker exec -it spark-master chmod +x ./spark-submit.sh
 docker exec -it spark-master ./spark-submit.sh
 echo Spark job submitted.
