@@ -15,4 +15,3 @@ echo "Submitting Spark job..."
 docker exec -it spark-submit dos2unix /app/spark-submit.sh
 docker exec -it spark-submit chmod +x /app/spark-submit.sh
 docker exec -it spark-submit /app/spark-submit.sh
-echo "Spark job submitted."
