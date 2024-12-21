@@ -13,20 +13,122 @@ In this tutorial, we will use the **`osekoo/spark-scala.g8`** template hosted on
 
 
 ### **Prerequisites**
+To successfully use the `spark-scala.g8` template for creating Spark projects, ensure the following tools are installed on your system.
 
-Before starting, ensure the following tools are installed on your system:
-1. **Java Development Kit (JDK):**
-   - Spark requires Java. Install JDK 8 or later.
-   - Verify the installation:
+
+### **1. Java Development Kit (JDK)**
+Spark requires Java for execution. Install **JDK 8** or later.
+**Download OpenJDK**  
+- [AdoptOpenJDK (Temurin)](https://adoptium.net/temurin): Free, open-source, and widely used JDK distribution.
+
+**Direct Links**:
+- **Windows**: [Download Windows MSI Installer](https://adoptium.net/temurin/releases/?version=8)
+- **macOS**: [Download macOS DMG Installer](https://adoptium.net/temurin/releases/?version=8)
+- **Linux**:
+  - Use your package manager to install OpenJDK:
+    ```bash
+    sudo apt update
+    sudo apt install openjdk-8-jdk
+    ```
+
+**Installation Verification**  
+After installation, verify JDK by running:
+```bash
+java -version
+```
+Expected output:
+```text
+java version "1.8.0_xxx"
+Java(TM) SE Runtime Environment (build 1.8.0_xxx)
+Java HotSpot(TM) 64-Bit Server VM (build 25.XXX-bXX, mixed mode)
+```
+
+
+### **2. Scala Build Tool (SBT)**
+- Download and install **SBT** from the [official website](https://www.scala-sbt.org/).
+- Verify the installation:
+  ```bash
+  sbt sbtVersion
+  ```
+  Example Output:
+  ```text
+  [info] 1.8.0
+  ```
+
+
+### **3. Docker**
+Docker is required to run Spark clusters and manage containers for services like Kafka.
+
+#### **Install Docker**
+- **Windows and macOS**:
+  - Download **Docker Desktop** from [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/).
+  - Follow the installation steps.
+  - Verify the installation:
+    ```bash
+    docker --version
+    ```
+    Example Output:
+    ```text
+    Docker version 20.10.12, build e91ed57
+    ```
+
+- **Linux**:
+  1. Update package index:
      ```bash
-     java -version
+     sudo apt-get update
      ```
-2. **Scala Build Tool (SBT):**
-   - Download and install SBT from [sbt official website](https://www.scala-sbt.org/).
-   - Verify the installation:
+  2. Install Docker:
      ```bash
-     sbt sbtVersion
+     sudo apt-get install -y docker.io
      ```
+  3. Add your user to the Docker group (optional, to avoid using `sudo`):
+     ```bash
+     sudo usermod -aG docker $USER
+     ```
+     Log out and log back in for the changes to take effect.
+  4. Verify the installation:
+     ```bash
+     docker --version
+     ```
+
+
+### **4. Docker Compose**
+Docker Compose is needed to orchestrate Spark clusters and other services like Kafka in multi-container setups.
+
+#### **Install Docker Compose**
+- **Windows and macOS**:
+  - Docker Desktop includes Docker Compose by default. No separate installation is needed.
+
+- **Linux**:
+  1. Download Docker Compose:
+     ```bash
+     sudo curl -L "https://github.com/docker/compose/releases/download/2.16.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+     ```
+  2. Set executable permissions:
+     ```bash
+     sudo chmod +x /usr/local/bin/docker-compose
+     ```
+  3. Verify the installation:
+     ```bash
+     docker-compose --version
+     ```
+     Example Output:
+     ```text
+     docker-compose version 2.16.0, build 12345678
+     ```
+
+
+### **5. Verify All Prerequisites**
+Run the following commands to ensure everything is set up correctly:
+```bash
+java -version       # Verify JDK
+sbt sbtVersion      # Verify SBT
+docker --version    # Verify Docker
+docker-compose --version  # Verify Docker Compose
+```
+
+
+With these tools installed, you'll be able to create, build, and run Spark projects seamlessly using the `spark-scala.g8` template. If you encounter any issues, feel free to ask for assistance!
 
 
 
