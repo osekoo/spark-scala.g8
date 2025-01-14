@@ -45,14 +45,15 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.XXX-bXX, mixed mode)
 
 
 ### **2. Scala Build Tool (SBT)**
-- Download and install **SBT** from the [official website](https://www.scala-sbt.org/).
+- Download and install **SBT** from the [official website]([https://www.scala-sbt.org/](https://www.scala-sbt.org/download/)).
 - Verify the installation:
   ```bash
-  sbt sbtVersion
+  sbt --version
   ```
   Example Output:
   ```text
-  [info] 1.8.0
+  sbt version in this project: 1.9.4
+  sbt script version: 1.9.4
   ```
 
 
@@ -122,7 +123,7 @@ Docker Compose is needed to orchestrate Spark clusters and other services like K
 Run the following commands to ensure everything is set up correctly:
 ```bash
 java -version       # Verify JDK
-sbt sbtVersion      # Verify SBT
+sbt --version      # Verify SBT
 docker --version    # Verify Docker
 docker-compose --version  # Verify Docker Compose
 ```
@@ -144,7 +145,7 @@ This command downloads and executes the `osekoo/spark-scala.g8` template from Gi
 - You’ll be prompted to specify project details, such as:
   - **Project name** (e.g., `MySparkApp`).
   - **Scala version** (e.g., `2.12.18`).
-  - **Spark version** (e.g., `3.3.2`).
+  - **Spark version** (e.g., `3.5.2`).
 
 Once completed, a new project folder named after your specified project will be created.
 
@@ -223,17 +224,6 @@ This script gracefully stops the Spark cluster.
 6. **Stop the Cluster**:  
    ```bash
    ./spark-stop
-   ```
-
-
-
-### **Template Customization**
-You can customize the **`osekoo/spark-scala.g8`** template for your organization or project requirements:
-1. Fork the repository: [osekoo/spark-scala.g8](https://github.com/osekoo/spark-scala.g8).
-2. Modify the template files to adjust default values, folder structures, or additional configurations.
-3. Use your customized template:
-   ```bash
-   sbt new <your_github_username>/<your_template>.g8
    ```
 
 
