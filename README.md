@@ -48,11 +48,12 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.XXX-bXX, mixed mode)
 - Download and install **SBT** from the [official website]([https://www.scala-sbt.org/](https://www.scala-sbt.org/download/)).
 - Verify the installation:
   ```bash
-  sbt sbtVersion
+  sbt --version
   ```
   Example Output:
   ```text
-  [info] 1.8.0
+  sbt version in this project: 1.9.4
+  sbt script version: 1.9.4
   ```
 
 
