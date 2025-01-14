@@ -123,7 +123,7 @@ Docker Compose is needed to orchestrate Spark clusters and other services like K
 Run the following commands to ensure everything is set up correctly:
 ```bash
 java -version       # Verify JDK
-sbt sbtVersion      # Verify SBT
+sbt --version      # Verify SBT
 docker --version    # Verify Docker
 docker-compose --version  # Verify Docker Compose
 ```
