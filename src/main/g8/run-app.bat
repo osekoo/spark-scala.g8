@@ -1,14 +1,15 @@
 @echo off
+
 echo Stopping Spark cluster...
-docker rm -f spark-submit
-docker rm -f spark-worker
-docker rm -f spark-master
+call spark-stop >nul 2>&1
 
 echo Starting Spark cluster...
-docker-compose up -d
+call spark-start >nul 2>&1
 
-echo Waiting for Spark master to be ready...
-timeout 4
+timeout /T 4 /NOBREAK
+
+echo Building Spark job...
+call sbt package >nul 2>&1
 
 echo Submitting Spark job...
 docker exec -it spark-submit dos2unix /app/spark-submit.sh

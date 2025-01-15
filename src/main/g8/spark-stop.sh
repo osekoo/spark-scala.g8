@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "Stopping Spark cluster..."
-docker-compose down
+echo Stopping Spark cluster...
+docker compose rm -f -s -v

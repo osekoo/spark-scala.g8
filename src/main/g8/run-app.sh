@@ -1,15 +1,15 @@
 #!/bin/bash
+echo Stopping Spark cluster...
+bash ./spark-stop.sh
 
-echo "Stopping Spark cluster..."
-docker rm -f spark-submit
-docker rm -f spark-worker
-docker rm -f spark-master
-
-echo "Starting Spark cluster..."
-docker-compose up -d
+echo Starting Spark cluster...
+bash ./spark-start.sh
 
 echo "Waiting for Spark master to be ready..."
 sleep 4
+
+echo Building Spark job...
+sbt package
 
 echo "Submitting Spark job..."
 docker exec -it spark-submit dos2unix /app/spark-submit.sh

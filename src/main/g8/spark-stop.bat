@@ -1,3 +1,3 @@
 @echo off
 echo Stopping Spark cluster...
-docker-compose down
+docker compose rm -f -s -v

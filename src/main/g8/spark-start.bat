@@ -1,3 +1,3 @@
 @echo off
 echo Starting Spark cluster...
-docker-compose up -d
+docker compose up -d
