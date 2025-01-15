@@ -105,7 +105,7 @@ Docker Compose is needed to orchestrate Spark clusters and other services like K
   
   2. Verify the installation:
      ```bash
-     docker compose --version
+     docker compose version
      ```
      Example Output:
      ```text
@@ -119,7 +119,7 @@ Run the following commands to ensure everything is set up correctly:
 java -version       # Verify JDK
 sbt --version      # Verify SBT
 docker --version    # Verify Docker
-docker-compose --version  # Verify Docker Compose
+docker compose version  # Verify Docker Compose
 ```
 
 
