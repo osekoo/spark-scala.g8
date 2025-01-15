@@ -45,7 +45,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.XXX-bXX, mixed mode)
 
 
 ### **2. Scala Build Tool (SBT)**
-- Download and install **SBT** from the [official website]([https://www.scala-sbt.org/](https://www.scala-sbt.org/download/)).
+- Download and install **SBT** from the [official website](https://www.scala-sbt.org/download/).
 - Verify the installation:
   ```bash
   sbt --version
@@ -101,21 +101,15 @@ Docker Compose is needed to orchestrate Spark clusters and other services like K
   - Docker Desktop includes Docker Compose by default. No separate installation is needed.
 
 - **Linux**:
-  1. Download Docker Compose:
+  1. Install Docker Compose: follow the intrustions described at [Install the Docker Compose plugin](https://docs.docker.com/compose/install/linux/)
+  
+  2. Verify the installation:
      ```bash
-     sudo curl -L "https://github.com/docker/compose/releases/download/2.16.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-     ```
-  2. Set executable permissions:
-     ```bash
-     sudo chmod +x /usr/local/bin/docker-compose
-     ```
-  3. Verify the installation:
-     ```bash
-     docker-compose --version
+     docker compose --version
      ```
      Example Output:
      ```text
-     docker-compose version 2.16.0, build 12345678
+     Docker Compose version v2.32.3
      ```
 
 
