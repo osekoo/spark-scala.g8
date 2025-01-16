@@ -1,23 +1,25 @@
 import org.apache.spark.sql.SparkSession
 
-object $class_name;format="Camel"$ {
+object $class_name;
+format = "Camel" $ {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder
       .appName("Word Count")
       .getOrCreate() // create a Spark session
 
-    spark.sparkContext.setLogLevel("ERROR")
+    spark.sparkContext.setLogLevel("ERROR")  // set the log level to ERROR (possible values: ALL, DEBUG, ERROR, FATAL, INFO, OFF, TRACE, WARN)
 
-    wordCount(spark) // call the wordCount function
+    val size = args(0).toInt // number of lines to generate
+    wordCount(spark, size) // call the wordCount function
 
     spark.stop() // stop the Spark session
   }
 
-  private def wordCount(spark: SparkSession): Unit = {
+  private def wordCount(spark: SparkSession, size: Int): Unit = {
     val fruits = Seq("apple", "banana", "carrot", "orange", "kiwi", "melon", "pineapple") // list of fruits
     val colors = Seq("red", "yellow", "orange", "green", "brown", "blue", "purple") // list of colors
     // pick between 5 and 15 colored fruits randomly as one item of a seq and repeat them 1000 times to create a dataset
-    val data = (1 to 1000).map(_ => (1 to scala.util.Random.nextInt(10) + 5).map(_ => s"\${colors(scala.util.Random.nextInt(colors.length))} \${fruits(scala.util.Random.nextInt(fruits.length))}").mkString(", "))
+    val data = (1 to size).map(_ => (1 to scala.util.Random.nextInt(10) + 5).map(_ => s"\${colors(scala.util.Random.nextInt(colors.length))} \${fruits(scala.util.Random.nextInt(fruits.length))}").mkString(", "))
 
     // print the first 10 items of the dataset
     println("\n============================ Dataset ============================")
