@@ -93,33 +93,12 @@ Docker is required to run Spark clusters and manage containers for services like
      ```
 
 
-### **4. Docker Compose**
-Docker Compose is needed to orchestrate Spark clusters and other services like Kafka in multi-container setups.
-
-#### **Install Docker Compose**
-- **Windows and macOS**:
-  - Docker Desktop includes Docker Compose by default. No separate installation is needed.
-
-- **Linux**:
-  1. Install Docker Compose: follow the intrustions described at [Install the Docker Compose plugin](https://docs.docker.com/compose/install/linux/)
-  
-  2. Verify the installation:
-     ```bash
-     docker compose version
-     ```
-     Example Output:
-     ```text
-     Docker Compose version v2.32.3
-     ```
-
-
 ### **5. Verify All Prerequisites**
 Run the following commands to ensure everything is set up correctly:
 ```bash
 java -version       # Verify JDK
 sbt --version      # Verify SBT
 docker --version    # Verify Docker
-docker compose version  # Verify Docker Compose
 ```
 
 
@@ -165,13 +144,23 @@ This will create a JAR file in the `target/scala-<version>/` directory. The JAR 
 
 
 
-#### **4. Run the Project**
-Execute your Spark application with the preconfigured `run-app` script:
+#### **4.1 Run the Spark Environment**
+Execute your Spark environement (cluster) with the preconfigured `spark-env` script:
 ```bash
-./run-app
+spark-env
 ```
 
-This script starts a local Spark cluster (master and worker) and submits your Spark application.
+This script starts a local Spark cluster (master and worker).
+
+
+
+#### **4.2 Run the Project**
+From the above Spark environment, execute your Spark application with the preconfigured `spark-submit-job` script:
+```bash
+spark-submit-job
+```
+
+This script submits your Spark application.
 
 
 
@@ -189,7 +178,7 @@ The Spark UI provides details about job execution, tasks, and cluster status.
 #### **6. Stop the Spark Cluster**
 Once your Spark application has finished or you want to shut down the cluster, run:
 ```bash
-./spark-stop
+exit
 ```
 
 This script gracefully stops the Spark cluster.
@@ -211,13 +200,13 @@ This script gracefully stops the Spark cluster.
    ```
 4. **Run the Application**:  
    ```bash
-   ./run-app
+   ./spark-env
    ```
 5. **Monitor the Application**:  
    View the Spark UI at [http://localhost:8080](http://localhost:8080).
 6. **Stop the Cluster**:  
    ```bash
-   ./spark-stop
+   exit
    ```
 
 
@@ -255,7 +244,6 @@ Visual Studio Code (VS Code) is a lightweight IDE with robust support for Scala 
 
 4. **Start Editing**:
    - Navigate to `src/main/scala/` to edit or add Scala source files for your Spark application.
-   - Use the `run-app` and `spark-stop` scripts to test your changes.
 
 
 
@@ -282,8 +270,6 @@ IntelliJ IDEA is a powerful IDE for JVM-based languages like Scala. It provides 
 
 5. **Start Editing**:
    - Navigate to the `src/main/scala/` folder to edit or create Scala files.
-   - Run your Spark project using the `run-app` and `spark-stop` scripts or directly configure a **Run/Debug Configuration** in IntelliJ.
-
 
 
 #### **Best Practices for IDE Usage**
