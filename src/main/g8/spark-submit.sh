@@ -1,7 +1,7 @@
 #!/bin/bash
 spark-submit \
     --deploy-mode client \
-    --master "\$SPARK_MASTER_URL" \
+    --master "spark://localhost:7077" \
     --executor-cores 4 \
     --executor-memory 2G \
     --num-executors 1 \
